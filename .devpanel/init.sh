@@ -41,7 +41,7 @@ else
   echo
 fi
 # If update fails, change it to install.
-time composer update -n --no-dev --no-progress
+time composer -n update --no-dev --no-progress
 
 #== Create the private files directory.
 if [ ! -d private ]; then

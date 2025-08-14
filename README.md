@@ -1,7 +1,10 @@
 <h1>
-    <a href="https://www.drupalforge.org/">
-        <img src="drupalforge.svg" alt="Drupal Forge" height="100px" />
-    </a>
+  <a href="https://www.drupalforge.org/">
+    <img src="drupalforge.svg" alt="Drupal Forge" height="100px" />
+  </a>
+  <br />
+  <br />
+  Starter Template
 </h1>
 
 This repository is a template for creating a Drupal Forge app from a Composer
@@ -14,13 +17,17 @@ you do not need this.__ The Composer project to create is specified by the
   [.devpanel/composer_setup.sh](.devpanel/composer_setup.sh#L10).
 - To skip creating a project with Composer, add your own `composer.json` to the
   repository root.
-- You can add the `.devpanel` directory from this repository to an existing
-  repository.
 
-This repository is optimized for fast deployment with
-[DevPanel](https://www.devpanel.com). DevPanel deployment files are in the
-[`.devpanel`](.devpanel) directory. This repository is also configured to run
-locally using [DDEV](https://ddev.com).
+
+## How to run this template
+
+- This repository is optimized for fast deployment with
+  [DevPanel](https://www.devpanel.com). DevPanel deployment files are in the
+  [`.devpanel`](.devpanel) directory. You can add the `.devpanel` directory
+  from this repository to an existing repository.
+- You can run this repository with any tool that supports
+  [dev containers](https://containers.dev/supporting).
+- This repository is also configured to run with [DDEV](https://ddev.com).
 
 
 ## Publishing a quick start image
