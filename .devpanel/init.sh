@@ -42,6 +42,8 @@ else
 fi
 # If update fails, change it to install.
 time composer -n update --no-dev --no-progress
+# Double composer update because of composer merge plugin.
+time composer -n update --no-dev --no-progress
 
 #== Create the private files directory.
 if [ ! -d private ]; then
@@ -68,7 +70,7 @@ fi
 echo
 if [ -z "$(drush status --field=db-status)" ]; then
   echo 'Install Drupal.'
-  time drush -n si
+  time drush -n si sobki_profile_dsfr
 
   echo
   echo 'Tell Automatic Updates about patches.'

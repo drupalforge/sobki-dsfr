@@ -1,0 +1,149 @@
+{
+    "name": "drupalforge/sobki-dsfr",
+    "description": "Sobki Bootstrap demo on drupalforge.org.",
+    "license": "GPL-2.0-or-later",
+    "type": "project",
+    "require": {
+        "composer/installers": "^2.0",
+        "cweagans/composer-patches": "^1.0",
+        "drupal/core-composer-scaffold": "^11.2",
+        "drupal/core-recommended": "^11.2",
+        "drupal/sobki_profile_dsfr": "~11.0.1",
+        "drush/drush": "^13",
+        "oomphinc/composer-installers-extender": "^2.0",
+        "wikimedia/composer-merge-plugin": "^2.0"
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "repositories": {
+        "asset-packagist": {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        },
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true,
+            "drupal/core-vendor-hardening": true,
+            "oomphinc/composer-installers-extender": true,
+            "php-http/discovery": true,
+            "wikimedia/composer-merge-plugin": true
+        },
+        "discard-changes": true,
+        "optimize-autoloader": true,
+        "platform": {
+            "php": "8.3"
+        },
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "extra": {
+        "composer-exit-on-patch-failure": true,
+        "drupal-scaffold": {
+            "file-mapping": {
+                "[project-root]/.gitattributes": false,
+                "[web-root]/.csslintrc": false,
+                "[web-root]/.eslintrc.json": false,
+                "[web-root]/INSTALL.txt": false,
+                "[web-root]/README.md": false,
+                "[web-root]/example.gitignore": false,
+                "[web-root]/modules/README.txt": false,
+                "[web-root]/profiles/README.txt": false,
+                "[web-root]/robots.txt": false,
+                "[web-root]/sites/default/settings.php": {
+                    "path": "web/core/assets/scaffold/files/default.settings.php",
+                    "overwrite": false
+                },
+                "[web-root]/sites/README.txt": false,
+                "[web-root]/themes/README.txt": false,
+                "[web-root]/update.php": false,
+                "[web-root]/web.config": false
+            },
+            "initial": {
+                "sites/default/default.services.yml": "sites/default/services.yml",
+                "sites/default/default.settings.php": "sites/default/settings.php"
+            },
+            "locations": {
+                "web-root": "./web"
+            }
+        },
+        "enable-patching": true,
+        "installer-paths": {
+            "web/core": [
+                "type:drupal-core"
+            ],
+            "web/libraries/dsfr": [
+                "npm-asset/gouvfr--dsfr"
+            ],
+            "web/libraries/fontawesome": [
+                "npm-asset/fortawesome--fontawesome-free"
+            ],
+            "web/libraries/{$name}": [
+                "type:drupal-library",
+                "type:bower-asset",
+                "type:npm-asset"
+            ],
+            "web/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "web/modules/custom/{$name}": [
+                "type:drupal-custom-module"
+            ],
+            "web/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "web/profiles/custom/{$name}": [
+                "type:drupal-custom-profile"
+            ],
+            "web/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "web/themes/custom/{$name}": [
+                "type:drupal-custom-theme"
+            ],
+            "drush/Commands/contrib/{$name}": [
+                "type:drupal-drush"
+            ],
+            "recipes/{$name}": [
+                "type:drupal-recipe"
+            ]
+        },
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ],
+        "merge-plugin": {
+            "include": [
+                "web/modules/contrib/webform/composer.libraries.json"
+            ],
+            "merge-extra": true,
+            "merge-extra-deep": true,
+            "merge-scripts": true
+        },
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "patches": {
+            "drupal/responsive_preview": {
+                "1 - Integrate responsive preview with Navigation top bar - https://www.drupal.org/project/responsive_preview/issues/3489112": "https://git.drupalcode.org/project/responsive_preview/-/commit/8eddec481dffb8f650a7eedcc1d1fca34128104e.patch"
+            }
+        }
+    },
+    "scripts": {
+        "post-drupal-scaffold-cmd": [
+            "cd web/sites/default && test -z \"$(grep 'include \\$devpanel_settings;' settings.php)\" && patch -Np1 -r /dev/null < $APP_ROOT/.devpanel/drupal-settings.patch || :"
+        ]
+    }
+}
