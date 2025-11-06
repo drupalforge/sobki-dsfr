@@ -134,11 +134,6 @@
         },
         "patchLevel": {
             "drupal/core": "-p2"
-        },
-        "patches": {
-            "drupal/responsive_preview": {
-                "1 - Integrate responsive preview with Navigation top bar - https://www.drupal.org/project/responsive_preview/issues/3489112": "https://git.drupalcode.org/project/responsive_preview/-/commit/8eddec481dffb8f650a7eedcc1d1fca34128104e.patch"
-            }
         }
     },
     "scripts": {
