@@ -51,7 +51,6 @@
         "sort-packages": true
     },
     "extra": {
-        "composer-exit-on-patch-failure": true,
         "drupal-scaffold": {
             "file-mapping": {
                 "[project-root]/.gitattributes": false,
@@ -80,7 +79,6 @@
                 "web-root": "./web"
             }
         },
-        "enable-patching": true,
         "installer-paths": {
             "web/core": [
                 "type:drupal-core"
@@ -133,8 +131,13 @@
             "merge-extra-deep": true,
             "merge-scripts": true
         },
-        "patchLevel": {
-            "drupal/core": "-p2"
+        "composer-patches": {
+            "package-depths": {
+                "drupal/core": 2
+            },
+            "ignore-dependency-patches": [
+                "drupal/ui_styles"
+            ]
         }
     },
     "scripts": {
