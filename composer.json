@@ -17,6 +17,11 @@
         "drupal/drupal": "*"
     },
     "repositories": {
+        "sobki_profile_dsfr": {
+            "type": "vcs",
+            "url": "https://git.drupalcode.org/project/sobki_profile_dsfr.git",
+            "only": ["drupal/sobki_profile_dsfr"]
+        },
         "asset-packagist": {
             "type": "composer",
             "url": "https://asset-packagist.org"
@@ -37,6 +42,7 @@
             "drupal/core-vendor-hardening": true,
             "oomphinc/composer-installers-extender": true,
             "php-http/discovery": true,
+            "symfony/runtime": true,
             "wikimedia/composer-merge-plugin": true
         },
         "discard-changes": true,
