@@ -9,6 +9,7 @@
         "drupal/core-composer-scaffold": "^11.2",
         "drupal/core-recommended": "^11.2",
         "drupal/sobki_profile_dsfr": "~11.0.1",
+        "drupal/ui_styles": "1.21",
         "drush/drush": "^13",
         "oomphinc/composer-installers-extender": "^2.0",
         "wikimedia/composer-merge-plugin": "^2.0"
@@ -134,10 +135,7 @@
         "composer-patches": {
             "package-depths": {
                 "drupal/core": 2
-            },
-            "ignore-dependency-patches": [
-                "drupal/sobki_profile_dsfr"
-            ]
+            }
         }
     },
     "scripts": {
