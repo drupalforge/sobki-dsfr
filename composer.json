@@ -37,6 +37,7 @@
             "drupal/core-vendor-hardening": true,
             "oomphinc/composer-installers-extender": true,
             "php-http/discovery": true,
+            "symfony/runtime": true,
             "wikimedia/composer-merge-plugin": true
         },
         "discard-changes": true,
