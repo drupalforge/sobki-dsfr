@@ -136,7 +136,7 @@
                 "drupal/core": 2
             },
             "ignore-dependency-patches": [
-                "drupal/ui_styles"
+                "drupal/sobki_profile_dsfr"
             ]
         }
     },
